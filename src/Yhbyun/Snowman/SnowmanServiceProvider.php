@@ -102,17 +102,17 @@ class SnowmanServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the baserepositorysitory generator
+     * Register the baserepository generator
      */
     protected function registerBaseRepository()
     {
-        $this->app['snowman.baserepositorysitory'] = $this->app->share(function ($app) {
+        $this->app['snowman.baserepository'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
             return new BaseRepositoryGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.baserepositorysitory');
+        $this->commands('snowman.baserepository');
     }
 
     /**

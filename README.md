@@ -134,7 +134,7 @@ return [
     'model_template_path' => '/Users/yhbyun/my-project/app/templates/model.txt',
     'repository_template_path' => '/Users/yhbyun/my-project/app/templates/repository.txt',
     'repository_interface_template_path' => '/Users/yhbyun/my-project/app/templates/repository_interface.txt',
-    'baserepository_template_path' => '/Users/yhbyun/my-project/app/templates/baserepositorysitory.txt',
+    'baserepository_template_path' => '/Users/yhbyun/my-project/app/templates/baserepository.txt',
     'baserepository_interface_template_path' => '/Users/yhbyun/my-project/app/templates/baserepository_interface.txt',
     'presenter_template_path' => '/Users/yhbyun/my-project/app/templates/presenter.txt',
     'repositoryserviceprovider_template_path' => '/Users/yhbyun/my-project/app/templates/repositoryserviceprovider.txt',

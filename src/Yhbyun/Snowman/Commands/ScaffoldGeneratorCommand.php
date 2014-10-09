@@ -70,14 +70,14 @@ class ScaffoldGeneratorCommand extends Command
     }
 
     /**
-     * Call baserepositorysitory generator
+     * Call baserepository generator
      *
      * @param $appName
      * @param $appPath
      */
     protected function callBaseRepository($appName, $appPath)
     {
-        $this->call('snowman:baserepositorysitory', ['appName' => $appName,
+        $this->call('snowman:baserepository', ['appName' => $appName,
             '--path' => $appPath . '/Repositories/Eloquent']);
     }
 
