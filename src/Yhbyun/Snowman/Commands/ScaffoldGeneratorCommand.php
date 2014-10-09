@@ -39,8 +39,8 @@ class ScaffoldGeneratorCommand extends Command
             $appPath,
             $appPath . '/Presenters',
             $appPath . '/Providers',
-            $appPath . '/Repos',
-            $appPath . '/Repos/Eloquent',
+            $appPath . '/Repositories',
+            $appPath . '/Repositories/Eloquent',
         ];
 
         foreach ($paths as $path) {
@@ -58,9 +58,9 @@ class ScaffoldGeneratorCommand extends Command
             }
         }
 
-        $this->callBaseRepo($appName, $appPath);
-        $this->callBaseRepoInterface($appName, $appPath);
-        $this->callRepoServiceProvider($appName, $appPath);
+        $this->callBaseRepository($appName, $appPath);
+        $this->callBaseRepositoryInterface($appName, $appPath);
+        $this->callRepositoryServiceProvider($appName, $appPath);
 
         // All done!
         $this->info(sprintf(
@@ -70,38 +70,38 @@ class ScaffoldGeneratorCommand extends Command
     }
 
     /**
-     * Call baserepo generator
+     * Call baserepositorysitory generator
      *
      * @param $appName
      * @param $appPath
      */
-    protected function callBaseRepo($appName, $appPath)
+    protected function callBaseRepository($appName, $appPath)
     {
-        $this->call('snowman:baserepo', ['appName' => $appName,
-            '--path' => $appPath . '/Repos/Eloquent']);
+        $this->call('snowman:baserepositorysitory', ['appName' => $appName,
+            '--path' => $appPath . '/Repositories/Eloquent']);
     }
 
     /**
-     * Call baserepointerface generator
+     * Call baserepositoryinterface generator
      *
      * @param $appName
      * @param $appPath
      */
-    protected function callBaseRepoInterface($appName, $appPath)
+    protected function callBaseRepositoryInterface($appName, $appPath)
     {
-        $this->call('snowman:baserepointerface', ['appName' => $appName,
-            '--path' => $appPath . '/Repos']);
+        $this->call('snowman:baserepositoryinterface', ['appName' => $appName,
+            '--path' => $appPath . '/Repositories']);
     }
 
     /**
-     * Call reposerviceprovider generator
+     * Call repositoryserviceprovider generator
      *
      * @param $appName
      * @param $appPath
      */
     protected function callRepoServiceProvider($appName, $appPath)
     {
-        $this->call('snowman:reposerviceprovider', ['appName' => $appName,
+        $this->call('snowman:repositoryserviceprovider', ['appName' => $appName,
             '--path' => $appPath . '/Providers']);
     }
 

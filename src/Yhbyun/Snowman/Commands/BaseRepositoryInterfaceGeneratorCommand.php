@@ -2,21 +2,21 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 
-class BaseRepoGeneratorCommand extends GeneratorCommand
+class BaseRepositoryInterfaceGeneratorCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'snowman:baserepo';
+    protected $name = 'snowman:baserepositoryinterface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate a baserepo';
+    protected $description = 'Generate a baserepositoryinterface';
 
     /**
      * The path where the file will be created
@@ -25,9 +25,9 @@ class BaseRepoGeneratorCommand extends GeneratorCommand
      */
     protected function getFileGenerationPath()
     {
-        $path = $this->getPathByOptionOrConfig('path', 'baserepo_target_path');
+        $path = $this->getPathByOptionOrConfig('path', 'baserepository_interface_target_path');
 
-        return $path . '/BaseRepo.php';
+        return $path . '/BaseRepositoryInterface.php';
     }
 
     /**
@@ -49,7 +49,7 @@ class BaseRepoGeneratorCommand extends GeneratorCommand
      */
     protected function getTemplatePath()
     {
-        return $this->getPathByOptionOrConfig('templatePath', 'baserepo_template_path');
+        return $this->getPathByOptionOrConfig('templatePath', 'baserepository_interface_template_path');
     }
 
     /**

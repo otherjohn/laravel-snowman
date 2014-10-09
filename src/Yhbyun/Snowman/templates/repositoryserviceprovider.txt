@@ -2,7 +2,7 @@
 
 use Illuminate\Support\ServiceProvider;
 
-class RepoServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.

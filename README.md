@@ -5,13 +5,13 @@
 
 This Laravel package provides a variety of generators to speed up your development process. These generators include:
 
-- `snowman:baserepo`
-- `snowman:baserepointerface`
+- `snowman:baserepository`
+- `snowman:baserepositoryinterface`
 - `snowman:model`
 - `snowman:presenter`
-- `snowman:repo`
-- `snowman:repointerface`
-- `snowman:reposerviceprovider`
+- `snowman:repository`
+- `snowman:repositoryinterface`
+- `snowman:repositoryserviceprovider`
 - `snowman:resource`
 - `snowman:scaffold`
 
@@ -132,12 +132,12 @@ return [
     |
     */
     'model_template_path' => '/Users/yhbyun/my-project/app/templates/model.txt',
-    'repo_template_path' => '/Users/yhbyun/my-project/app/templates/repo.txt',
-    'repo_interface_template_path' => '/Users/yhbyun/my-project/app/templates/repo_interface.txt',
-    'baserepo_template_path' => '/Users/yhbyun/my-project/app/templates/baserepo.txt',
-    'baserepo_interface_template_path' => '/Users/yhbyun/my-project/app/templates/baserepo_interface.txt',
+    'repository_template_path' => '/Users/yhbyun/my-project/app/templates/repository.txt',
+    'repository_interface_template_path' => '/Users/yhbyun/my-project/app/templates/repository_interface.txt',
+    'baserepository_template_path' => '/Users/yhbyun/my-project/app/templates/baserepositorysitory.txt',
+    'baserepository_interface_template_path' => '/Users/yhbyun/my-project/app/templates/baserepository_interface.txt',
     'presenter_template_path' => '/Users/yhbyun/my-project/app/templates/presenter.txt',
-    'reposerviceprovider_template_path' => '/Users/yhbyun/my-project/app/templates/reposerviceprovider.txt',
+    'repositoryserviceprovider_template_path' => '/Users/yhbyun/my-project/app/templates/repositoryserviceprovider.txt',
 
 
     /*

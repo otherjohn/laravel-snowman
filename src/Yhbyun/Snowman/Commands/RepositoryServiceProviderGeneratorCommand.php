@@ -2,21 +2,21 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 
-class RepoGeneratorCommand extends GeneratorCommand
+class RepositoryServiceProviderGeneratorCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'snowman:repo';
+    protected $name = 'snowman:repositoryserviceprovider';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate a repo';
+    protected $description = 'Generate a repositoryserviceprovider';
 
     /**
      * The path where the file will be created
@@ -25,9 +25,9 @@ class RepoGeneratorCommand extends GeneratorCommand
      */
     protected function getFileGenerationPath()
     {
-        $path = $this->getPathByOptionOrConfig('path', 'repo_target_path');
+        $path = $this->getPathByOptionOrConfig('path', 'repositoryserviceprovider_target_path');
 
-        return $path . '/' . ucwords(camel_case($this->argument('modelName'))) . 'Repo.php';
+        return $path . '/RepositoryServiceProvider.php';
     }
 
     /**
@@ -38,9 +38,7 @@ class RepoGeneratorCommand extends GeneratorCommand
     protected function getTemplateData()
     {
         return [
-            'APPNAME' => ucwords($this->argument('appName')),
-            'NAME' => ucwords(camel_case($this->argument('modelName'))),
-            'INSTANCE' => '$' . camel_case($this->argument('modelName')),
+            'APPNAME' => ucwords($this->argument('appName'))
         ];
     }
 
@@ -51,7 +49,7 @@ class RepoGeneratorCommand extends GeneratorCommand
      */
     protected function getTemplatePath()
     {
-        return $this->getPathByOptionOrConfig('templatePath', 'repo_template_path');
+        return $this->getPathByOptionOrConfig('templatePath', 'repositoryserviceprovider_template_path');
     }
 
     /**
@@ -62,8 +60,7 @@ class RepoGeneratorCommand extends GeneratorCommand
     protected function getArguments()
     {
         return [
-            ['appName', InputArgument::REQUIRED, 'The namespace of the App'],
-            ['modelName', InputArgument::REQUIRED, 'The name of the desired model']
+            ['appName', InputArgument::REQUIRED, 'The namespace of the App']
         ];
     }
 }

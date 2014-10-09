@@ -2,21 +2,21 @@
 
 use Symfony\Component\Console\Input\InputArgument;
 
-class RepoInterfaceGeneratorCommand extends GeneratorCommand
+class RepositoryInterfaceGeneratorCommand extends GeneratorCommand
 {
     /**
      * The console command name.
      *
      * @var string
      */
-    protected $name = 'snowman:repointerface';
+    protected $name = 'snowman:repositoryinterface';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Generate a repo interface';
+    protected $description = 'Generate a repository interface';
 
     /**
      * The path where the file will be created
@@ -25,9 +25,9 @@ class RepoInterfaceGeneratorCommand extends GeneratorCommand
      */
     protected function getFileGenerationPath()
     {
-        $path = $this->getPathByOptionOrConfig('path', 'repo_interface_target_path');
+        $path = $this->getPathByOptionOrConfig('path', 'repository_interface_target_path');
 
-        return $path . '/' . ucwords(camel_case($this->argument('modelName'))) . 'RepoInterface.php';
+        return $path . '/' . ucwords(camel_case($this->argument('modelName'))) . 'RepositoryInterface.php';
     }
 
     /**
@@ -50,7 +50,7 @@ class RepoInterfaceGeneratorCommand extends GeneratorCommand
      */
     protected function getTemplatePath()
     {
-        return $this->getPathByOptionOrConfig('templatePath', 'repo_interface_template_path');
+        return $this->getPathByOptionOrConfig('templatePath', 'repository_interface_template_path');
     }
 
     /**

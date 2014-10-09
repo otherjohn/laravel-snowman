@@ -1,6 +1,0 @@
-<?php namespace $APPNAME$\Repos;
-
-interface $NAME$RepoInterface extends BaseRepoInterface
-{
-
-}

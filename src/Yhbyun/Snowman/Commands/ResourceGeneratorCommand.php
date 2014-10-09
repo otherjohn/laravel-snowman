@@ -35,19 +35,19 @@ class ResourceGeneratorCommand extends Command
         $appPath = Config::get("snowman::config.target_parant_path")
             . '/' . ucwords($appName);
 
-        $this->callRepo($appName, $modelName, $appPath);
-        $this->callRepoInterface($appName, $modelName, $appPath);
+        $this->callRepository($appName, $modelName, $appPath);
+        $this->callRepositoryInterface($appName, $modelName, $appPath);
         $this->callModel($appName, $modelName, $appPath);
         $this->callPresenter($appName, $modelName, $appPath);
 
-        if ($this->confirm("Do you want me to add $modelName binding code to RepoServiceProvider.php? [yes|no]")) {
+        if ($this->confirm("Do you want me to add $modelName binding code to RepositoryServiceProvider.php? [yes|no]")) {
             $file = new Filesystem;
-            $repoPath = $appPath . '/Providers/RepoServiceProvider.php';
+            $repositoryPath = $appPath . '/Providers/RepositoryServiceProvider.php';
 
             try {
-                $contents = $file->get($repoPath);
+                $contents = $file->get($repositoryPath);
             } catch (FileNotFound $e) {
-                $this->error("The file, {$repoPath}, does not exist.");
+                $this->error("The file, {$repositoryPath}, does not exist.");
 
                 return;
             }
@@ -59,8 +59,8 @@ class ResourceGeneratorCommand extends Command
 public function register()
     {
         \$this->app->bind(
-            '{$appName}\\Repos\\{$modelName}RepoInterface',
-            '{$appName}\\Repos\\Eloquent\\{$modelName}Repo'
+            '{$appName}\\Repositories\\{$modelName}RepositoryInterface',
+            '{$appName}\\Repositories\\Eloquent\\{$modelName}Repo'
         );
 
 EOF;
@@ -70,8 +70,8 @@ EOF;
                 $contents
             );
 
-            $file->make($repoPath, $contents, true);
-            $this->info("The file, {$repoPath}, was modified.");
+            $file->make($repositoryPath, $contents, true);
+            $this->info("The file, {$repositoryPath}, was modified.");
         }
 
         // All done!
@@ -82,31 +82,31 @@ EOF;
     }
 
     /**
-     * Call repo generator
+     * Call repository generator
      *
      * @param $appName
      * @param $modelName
      * @param $appPath
      */
-    protected function callRepo($appName, $modelName, $appPath)
+    protected function callRepository($appName, $modelName, $appPath)
     {
-        $this->call('snowman:repo', ['appName' => $appName,
+        $this->call('snowman:repository', ['appName' => $appName,
             'modelName' => $modelName,
-            '--path' => $appPath . '/Repos/Eloquent']);
+            '--path' => $appPath . '/Repositories/Eloquent']);
     }
 
     /**
-     * Call repointerface generator
+     * Call repositoryinterface generator
      *
      * @param $appName
      * @param $modelName
      * @param $appPath
      */
-    protected function callRepoInterface($appName, $modelName, $appPath)
+    protected function callRepositoryInterface($appName, $modelName, $appPath)
     {
-        $this->call('snowman:repointerface', ['appName' => $appName,
+        $this->call('snowman:repositoryinterface', ['appName' => $appName,
             'modelName' => $modelName,
-            '--path' => $appPath . '/Repos']);
+            '--path' => $appPath . '/Repositories']);
     }
 
     /**

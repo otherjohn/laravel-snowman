@@ -1,6 +1,6 @@
-<?php namespace $APPNAME$\Repos;
+<?php namespace $APPNAME$\Repositories;
 
-interface BaseRepoInterface
+interface BaseRepositoryInterface
 {
     public function all(array $with = array());
 

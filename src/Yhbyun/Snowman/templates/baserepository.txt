@@ -1,9 +1,9 @@
-<?php namespace $APPNAME$\Repos\Eloquent;
+<?php namespace $APPNAME$\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
-use $APPNAME$\Repos\BaseRepoInterface;
+use $APPNAME$\Repositories\BaseRepositoryInterface;
 
-abstract class BaseRepo implements BaseRepoInterface
+abstract class BaseRepository implements BaseRepositoryInterface
 {
     /**
      * The model to execute queries on.

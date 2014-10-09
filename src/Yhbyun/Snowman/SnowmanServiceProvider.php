@@ -1,14 +1,14 @@
 <?php namespace Yhbyun\Snowman;
 
 use Illuminate\Support\ServiceProvider;
-use Yhbyun\Snowman\Commands\BaseRepoGeneratorCommand;
-use Yhbyun\Snowman\Commands\BaseRepoInterfaceGeneratorCommand;
+use Yhbyun\Snowman\Commands\BaseRepositoryGeneratorCommand;
+use Yhbyun\Snowman\Commands\BaseRepositoryInterfaceGeneratorCommand;
 use Yhbyun\Snowman\Commands\ModelGeneratorCommand;
 use Yhbyun\Snowman\Commands\PresenterGeneratorCommand;
 use Yhbyun\Snowman\Commands\PublishTemplatesCommand;
-use Yhbyun\Snowman\Commands\RepoGeneratorCommand;
-use Yhbyun\Snowman\Commands\RepoInterfaceGeneratorCommand;
-use Yhbyun\Snowman\Commands\RepoServiceProviderGeneratorCommand;
+use Yhbyun\Snowman\Commands\RepositoryGeneratorCommand;
+use Yhbyun\Snowman\Commands\RepositoryInterfaceGeneratorCommand;
+use Yhbyun\Snowman\Commands\RepositoryServiceProviderGeneratorCommand;
 use Yhbyun\Snowman\Commands\ResourceGeneratorCommand;
 use Yhbyun\Snowman\Commands\ScaffoldGeneratorCommand;
 
@@ -45,12 +45,12 @@ class SnowmanServiceProvider extends ServiceProvider
     {
         foreach ([
                     'Model',
-                    'Repo',
-                    'RepoInterface',
-                    'BaseRepo',
-                    'BaseRepoInterface',
+                    'Repository',
+                    'RepositoryInterface',
+                    'BaseRepository',
+                    'BaseRepositoryInterface',
                     'Presenter',
-                    'RepoServiceProvider',
+                    'RepositoryServiceProvider',
                     'Scaffold',
                     'Resource',
                     'Publisher',
@@ -74,59 +74,59 @@ class SnowmanServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the repo generator
+     * Register the repository generator
      */
-    protected function registerRepo()
+    protected function registerRepository()
     {
-        $this->app['snowman.repo'] = $this->app->share(function ($app) {
+        $this->app['snowman.repository'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
-            return new RepoGeneratorCommand($generator);
+            return new RepositoryGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.repo');
+        $this->commands('snowman.repository');
     }
 
     /**
-     * Register the repointerface generator
+     * Register the repositoryinterface generator
      */
-    protected function registerRepoInterface()
+    protected function registerRepositoryInterface()
     {
-        $this->app['snowman.repointerface'] = $this->app->share(function ($app) {
+        $this->app['snowman.repositoryinterface'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
-            return new RepoInterfaceGeneratorCommand($generator);
+            return new RepositoryInterfaceGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.repointerface');
+        $this->commands('snowman.repositoryinterface');
     }
 
     /**
-     * Register the baserepo generator
+     * Register the baserepositorysitory generator
      */
-    protected function registerBaseRepo()
+    protected function registerBaseRepository()
     {
-        $this->app['snowman.baserepo'] = $this->app->share(function ($app) {
+        $this->app['snowman.baserepositorysitory'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
-            return new BaseRepoGeneratorCommand($generator);
+            return new BaseRepositoryGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.baserepo');
+        $this->commands('snowman.baserepositorysitory');
     }
 
     /**
-     * Register the baserepointerface generator
+     * Register the baserepositoryinterface generator
      */
-    protected function registerBaseRepoInterface()
+    protected function registerBaseRepositoryInterface()
     {
-        $this->app['snowman.baserepointerface'] = $this->app->share(function ($app) {
+        $this->app['snowman.baserepositoryinterface'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
-            return new BaseRepoInterfaceGeneratorCommand($generator);
+            return new BaseRepositoryInterfaceGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.baserepointerface');
+        $this->commands('snowman.baserepositoryinterface');
     }
 
     /**
@@ -144,17 +144,17 @@ class SnowmanServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the reposerviceprovider generator
+     * Register the repositoryserviceprovider generator
      */
-    protected function registerRepoServiceProvider()
+    protected function registerRepositoryServiceProvider()
     {
-        $this->app['snowman.reposerviceprovider'] = $this->app->share(function ($app) {
+        $this->app['snowman.repositoryserviceprovider'] = $this->app->share(function ($app) {
             $generator = $app->make('Yhbyun\Snowman\Generator');
 
-            return new RepoServiceProviderGeneratorCommand($generator);
+            return new RepositoryServiceProviderGeneratorCommand($generator);
         });
 
-        $this->commands('snowman.reposerviceprovider');
+        $this->commands('snowman.repositoryserviceprovider');
     }
 
     /**

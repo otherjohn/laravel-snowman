@@ -1,0 +1,12 @@
+<?php namespace $APPNAME$\Repositories\Eloquent;
+
+use $APPNAME$\$NAME$;
+use $APPNAME$\Repositories\$NAME$RepositoryInterface;
+
+class $NAME$Repository extends BaseRepository implements $NAME$RepositoryInterface
+{
+    public function __construct($NAME$ $INSTANCE$)
+    {
+        parent::__construct($INSTANCE$);
+    }
+}
