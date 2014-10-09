@@ -99,7 +99,7 @@ class ScaffoldGeneratorCommand extends Command
      * @param $appName
      * @param $appPath
      */
-    protected function callRepoServiceProvider($appName, $appPath)
+    protected function callRepositoryServiceProvider($appName, $appPath)
     {
         $this->call('snowman:repositoryserviceprovider', ['appName' => $appName,
             '--path' => $appPath . '/Providers']);
